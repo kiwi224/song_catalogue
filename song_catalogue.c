@@ -9,10 +9,45 @@ struct Song // everything stored inside 'type' song
     int year;
 };
 
-struct song songs[10]; //creates an array that can hold 10 songs
+struct Song songs[10]; //creates an array that can hold 10 songs
 int count = 0; //track how many songs entered
 
-int main()
+void enterdata()
+{
+    printf("Singer:");
+    scanf(" %[^\n]s", songs[count].singer); //reads string with spaces
+    printf("Song Name:");
+    scanf(" %[^\n]s", songs[count].songName);
+    printf("Price:");
+    scanf("%f", &songs[count].price);
+    printf("Year:");
+    scanf("%d", &songs[count].year);  
+    
+    count++; //increment count after each song entered
+
+}
+
+switch(choice)
+{
+    case 1:
+        enterdata();
+        break;
+    case 2:
+        saveToFile();
+        break;
+    case 3:
+        readFromFile();
+        break;
+    case 4:
+        printCatalogue();
+        break;
+    case 5:
+        printf("Exiting program.\n");
+        break;
+    default:
+        printf("Invalid choice. Please try again.\n");
+}
+int main(void)
 {
     int choice;  //menu choice
 
@@ -34,11 +69,6 @@ int main()
         
 }
 
-
-
-
-    return 0;
-}
 
 
 

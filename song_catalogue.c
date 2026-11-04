@@ -14,23 +14,24 @@ int count = 0; //track how many songs entered
 
 int main()
 {
-    int choice;
+    int choice;  //menu choice
 
     do
     {
         printf("\nSong catalogue\n");
-        printf("1.Enter Data\n"
-               "2.save to File\n"
-               "3.Read from File\n"
-               "4.Print catalogue\n"
-               "5.Exit\n");
+        printf("1.Enter Data\n");
+        printf("2.save to File\n");
+        printf("3.Read from File\n");
+        printf("4.Print catalogue\n");
+        printf("5.Exit\n");
 
-               printf("Enter choice: ");
-               scanf("%d , &choice");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
 
         } while(choice !=5);
 
         return 0;
+        
 }
 
 

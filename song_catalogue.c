@@ -14,7 +14,27 @@ int count = 0; //track how many songs entered
 
 int main()
 {
-    printf("song catalogue program\n");
+    int choice;
+
+    do
+    {
+        printf("\nSong catalogue\n");
+        printf("1.Enter Data\n"
+               "2.save to File\n"
+               "3.Read from File\n"
+               "4.Print catalogue\n"
+               "5.Exit\n");
+
+               printf("Enter choice: ");
+               scanf("%d , &choice");
+
+        } while(choice !=5);
+
+        return 0;
+}
+
+
+
 
     return 0;
 }

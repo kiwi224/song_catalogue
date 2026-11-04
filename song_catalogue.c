@@ -12,6 +12,12 @@ struct Song // everything stored inside 'type' song
 struct song songs[10]; //creates an array that can hold 10 songs
 int count = 0; //track how many songs entered
 
+int main()
+{
+    printf("song catalogue program\n");
+
+    return 0;
+}
 
 
 

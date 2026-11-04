@@ -27,26 +27,54 @@ void enterdata()
 
 }
 
-switch(choice)
+void printCatalogue()
 {
-    case 1:
-        enterdata();
-        break;
-    case 2:
-        saveToFile();
-        break;
-    case 3:
-        readFromFile();
-        break;
-    case 4:
-        printCatalogue();
-        break;
-    case 5:
-        printf("Exiting program.\n");
-        break;
-    default:
-        printf("Invalid choice. Please try again.\n");
+    printf("\nSong Catalogue:\n");
+    for(int i = 0; i < count; i++)
+    {
+        printf("Singer: %s\n", songs[i].singer);
+        printf("Song Name: %s\n", songs[i].songName);
+        printf("Price: %.2f\n", songs[i].price);
+        printf("Year: %d\n", songs[i].year);
+        printf("---------------------\n");
+    }
 }
+
+void saveToFile()
+{
+    FILE *file = fopen("songs.txt", "w");
+    if(file == NULL)
+    {
+        printf("Error opening file for writing.\n");
+        return;
+    }
+
+    for(int i = 0; i < count; i++)
+    {
+        fprintf(file, "%s\n%s\n%.2f\n%d\n", songs[i].singer, songs[i].songName, songs[i].price, songs[i].year);
+    }
+
+    fclose(file);
+    printf("Data saved to file successfully.\n");
+}
+
+void sortSongs()
+{
+    for(int i = 0; i < count - 1; i++)
+    {
+        for(int j = 0; j < count - i - 1; j++)
+        {
+            if(strcmp(songs[j].singer, songs[j + 1].singer) > 0)
+            {
+                struct Song temp = songs[j];
+                songs[j] = songs[j + 1];
+                songs[j + 1] = temp;
+            }
+        }
+    }
+}
+
+
 int main(void)
 {
     int choice;  //menu choice
@@ -62,6 +90,26 @@ int main(void)
 
         printf("Enter choice: ");
         scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                enterdata();
+                break;
+            case 2:
+                saveToFile();
+                break;
+            case 3:
+                readFromFile();
+                break;
+            case 4:
+                printCatalogue();
+                break;
+            case 5:
+                printf("Exiting program.\n");
+                break;
+            default:
+                printf("Invalid choice. Please try again.\n");
 
         } while(choice !=5);
 
